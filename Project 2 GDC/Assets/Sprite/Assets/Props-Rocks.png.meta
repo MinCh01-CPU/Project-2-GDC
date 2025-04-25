@@ -1091,10 +1091,10 @@ TextureImporter:
       name: Props-Rocks_31
       rect:
         serializedVersion: 2
-        x: 116
-        y: 41
-        width: 42
-        height: 103
+        x: 117
+        y: 80
+        width: 36
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
