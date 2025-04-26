@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -115,10 +115,10 @@ TextureImporter:
       name: summonDeath_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 61
-        width: 12
-        height: 22
+        x: 0
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: summonDeath_1
       rect:
         serializedVersion: 2
-        x: 68
-        y: 63
-        width: 10
-        height: 20
+        x: 50
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: summonDeath_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 67
-        width: 10
-        height: 16
+        x: 100
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: summonDeath_3
       rect:
         serializedVersion: 2
-        x: 21
-        y: 22
-        width: 8
-        height: 11
+        x: 0
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: summonDeath_4
       rect:
         serializedVersion: 2
-        x: 70
-        y: 24
-        width: 8
-        height: 9
+        x: 50
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d7dd5f6e48e22a345b980006578fca47
     internalID: 0
     vertices: []
     indices: 
@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      summonDeath_0: -7023478938760995558
+      summonDeath_1: 3256598147301776798
+      summonDeath_2: -4845140414194949148
+      summonDeath_3: 6967922766288420421
+      summonDeath_4: -8710844671189750385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

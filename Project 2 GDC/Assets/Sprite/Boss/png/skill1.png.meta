@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -136,10 +136,10 @@ TextureImporter:
       name: skill1_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 116
-        width: 47
-        height: 64
+        x: 0
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,10 +158,10 @@ TextureImporter:
       name: skill1_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 116
-        width: 50
-        height: 69
+        x: 100
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: skill1_2
       rect:
         serializedVersion: 2
-        x: 233
-        y: 116
-        width: 32
-        height: 67
+        x: 200
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: skill1_3
       rect:
         serializedVersion: 2
-        x: 333
-        y: 116
-        width: 32
-        height: 67
+        x: 300
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: skill1_4
       rect:
         serializedVersion: 2
-        x: 426
-        y: 116
-        width: 33
-        height: 66
+        x: 400
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: skill1_5
       rect:
         serializedVersion: 2
-        x: 526
-        y: 116
-        width: 35
-        height: 66
+        x: 500
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +268,10 @@ TextureImporter:
       name: skill1_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 54
-        height: 66
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +290,10 @@ TextureImporter:
       name: skill1_7
       rect:
         serializedVersion: 2
-        x: 104
-        y: 16
-        width: 79
-        height: 66
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +312,10 @@ TextureImporter:
       name: skill1_8
       rect:
         serializedVersion: 2
-        x: 216
-        y: 16
-        width: 54
-        height: 66
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,10 +334,10 @@ TextureImporter:
       name: skill1_9
       rect:
         serializedVersion: 2
-        x: 326
-        y: 16
-        width: 35
-        height: 66
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +356,10 @@ TextureImporter:
       name: skill1_10
       rect:
         serializedVersion: 2
-        x: 426
-        y: 15
-        width: 33
-        height: 66
+        x: 400
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: skill1_11
       rect:
         serializedVersion: 2
-        x: 533
-        y: 15
-        width: 50
-        height: 69
+        x: 500
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f9eb541f71c176d4d9d285f61dc7dd22
     internalID: 0
     vertices: []
     indices: 
@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      skill1_0: -2833775182555582667
+      skill1_1: -5708941596360452247
+      skill1_10: -6857078158124440818
+      skill1_11: -2682086547265108738
+      skill1_2: -6852985128836715184
+      skill1_3: -706068992433645699
+      skill1_4: 6341960913417918139
+      skill1_5: 3594819719720684759
+      skill1_6: -5259044502740863221
+      skill1_7: 391909082404558028
+      skill1_8: 6694025853591573197
+      skill1_9: 2365104174983624309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
