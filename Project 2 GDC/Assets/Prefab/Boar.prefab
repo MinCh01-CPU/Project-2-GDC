@@ -110,8 +110,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< Updated upstream
-=======
 --- !u!50 &6386050814432848624
 Rigidbody2D:
   serializedVersion: 5
@@ -239,4 +237,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3471173975518481916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
