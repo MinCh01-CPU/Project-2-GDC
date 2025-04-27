@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3471173975518481916}
   - component: {fileID: 1324882910302847968}
   - component: {fileID: 1574117617235377928}
+  - component: {fileID: 6386050814432848624}
+  - component: {fileID: 3657598801779687467}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Untagged
@@ -30,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 6.34, y: 0.15, z: -0.05906649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 8332817239949419748}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1324882910302847968
@@ -174,38 +177,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   m_Size: {x: 1.3, y: 0.9}
   m_Direction: 1
---- !u!114 &1746029217136445199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913472805379340255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a400a5dbf3607a847b21c83452f0897c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RangeAware: 1
---- !u!114 &6271615225184119363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913472805379340255}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24ab3ac1e65dcd4fac2ef88b887dd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy_spd: 1
-  circleRadius: 0
-  _player: {fileID: 0}
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &6980389782148270062
 GameObject:
   m_ObjectHideFlags: 0
