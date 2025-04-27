@@ -14,12 +14,12 @@ public class Aware : MonoBehaviour
     void Update()
     {
         Vector2 DirectionToPlayer=_player.position-transform.position;
-        DirectToPlayer=DirectionToPlayer.normalized;
-        if(DirectToPlayer.magnitude<=RangeAware){
+        if(DirectionToPlayer.magnitude<=RangeAware){
             AwareOfPlayer=true;
         }
         else{
             AwareOfPlayer=false;
         }
+        DirectToPlayer=DirectionToPlayer.normalized;
     }
 }
