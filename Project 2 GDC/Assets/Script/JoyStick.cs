@@ -8,12 +8,15 @@ public class JoyStick : MonoBehaviour
 {
     public float jumpForce = 10f;
     public float radius;
+    // public CharacterController2d controller2D;
     [SerializeField] private float speed = 8;
 
     private Rigidbody2D rb;
     public Transform groundPos;
     private bool isGrounded;
     public LayerMask WhatIsGround;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform ceilingCheck;
     // private float jumpTimeCounter;
 
     // public GameObject attackPoint;
@@ -45,7 +48,7 @@ public class JoyStick : MonoBehaviour
 
       
 
-        anim.SetBool("isRunning", horizontalInput!=0f);
+        anim.SetBool("isRunning", horizontalInput!=0);
         anim.SetBool("isGrounded", isGrounded);
     }
     private void FixedUpdate()
