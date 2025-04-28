@@ -3,14 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags:
   - Ground
   - attackPoint
+=======
+  tags: []
+>>>>>>> 742a816c7d36d730b4aa30b6a0003f9a4658a6c2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Player
