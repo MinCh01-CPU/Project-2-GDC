@@ -13,14 +13,22 @@ public class Health : MonoBehaviour
     {
         currentHealth = startingHealth;
     }
-
+    void Update()
+    {
+        healthBar.text = "HP: " + currentHealth.ToString();
+        // if (currentHealth <= 0) anim.SetBool("isDead", true);
+    }
+    // void FixedUpdate()
+    // {
+    //     if (currentHealth <= 0) anim.SetBool("isDead", true);
+    // }
     // Update is called once per frame
-   public void TakeDamage (int _dame) 
+    public void TakeDamage (int _dame) 
    {
         currentHealth -= _dame;
         if (currentHealth <= 0)
         {
-            anim.SetBool("isDeath", true);
+            anim.SetBool("isDead", true);
         }
         else {
             healthBar.text = "HP" + currentHealth.ToString();
