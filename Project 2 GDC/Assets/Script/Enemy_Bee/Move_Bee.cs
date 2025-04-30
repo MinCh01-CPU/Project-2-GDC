@@ -12,7 +12,6 @@ public class Move_Bee : MonoBehaviour
     private bool directRight=false;
     private bool isChasing=false;
     private Vector2 StartPoint;
-    private Vector2 _targetDirection;
     public Transform _player;
     public Animator animator;
     private void Awake()
@@ -20,9 +19,9 @@ public class Move_Bee : MonoBehaviour
         _rb=GetComponent<Rigidbody2D>();
         _aware=GetComponent<Aware_Bee>();
         StartPoint=transform.position;
-
     }
     private void Start(){
+
         StartCoroutine(Patrol());
     }
     void FixedUpdate()
@@ -42,10 +41,21 @@ public class Move_Bee : MonoBehaviour
         }
     }
     
+    private void GoSpawn(){
+        Vector2 spawnDirection = _aware.DirectToSpawn;
+        _rb.linearVelocity = spawnDirection * Enemy_spd;
+
+        if (spawnDirection.x > 0 && !directRight){
+        Flip();
+        }
+        else if (spawnDirection.x < 0 && directRight){
+        Flip();
+        }
+    }
 
     private void Chase()
     {
-        Vector2 targetDirection = _aware.DirectToPlayer.normalized;
+        Vector2 targetDirection = _aware.DirectToPlayer;
         _rb.linearVelocity = targetDirection * Enemy_spd;
 
             if(_player.position.x>transform.position.x){
@@ -59,9 +69,16 @@ public class Move_Bee : MonoBehaviour
 
     private IEnumerator Patrol()
     {
+        yield return new WaitForSeconds(1f);
         while (true)
         {
-
+            while (Vector2.Distance(transform.position, _aware._SpawnPoint) > 0.0001f)
+        {
+            GoSpawn();
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        _rb.linearVelocity = Vector2.zero;
             // Di chuyển đến khi vượt khỏi phạm vi tuần tra
             while (Mathf.Abs(transform.position.x - StartPoint.x) <= patrolRange)
             {
