@@ -72,7 +72,7 @@ public class Move_Bee : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (true)
         {
-            while (Vector2.Distance(transform.position, _aware._SpawnPoint) > 0.0001f)
+            while (Vector2.Distance(transform.position, _aware._SpawnPoint) > 0.01f)
         {
             GoSpawn();
             yield return null;
