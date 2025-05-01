@@ -6,93 +6,80 @@ using UnityEngine.Rendering;
 
 public class JoyStick : MonoBehaviour
 {
-    public float jumpForce = 10f;
-    public float radius;
-    // public CharacterController2d controller2D;
+    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float speed = 8;
+    private bool isGrounded;
+    [SerializeField] private float groundCheckDistance;
+    private bool directRight = true;
+    private float horizontalInput;
 
     private Rigidbody2D rb;
-    public Transform groundPos;
-    private bool isGrounded;
-    public LayerMask WhatIsGround;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform ceilingCheck;
-    // private float jumpTimeCounter;
-
-    // public GameObject attackPoint;
-// public Transform attackPoint = parentTransform.Find("attackPoint");
-    public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
-    public float jumpTime;
     private Animator anim;
-    private float horizontalInput;
-    [SerializeField] private int jumpAmount = 10;
-    private bool isRightFacing = true;
-    public float gravityScale = 5;
-    public LayerMask enemies;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public LayerMask groundLayer;
+
+    void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+       
+    }
+
     void Update()
     {
+        checkGround();
+
         horizontalInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-      
+        flipControl();
 
         anim.SetBool("isRunning", horizontalInput!=0);
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isJumping", !isGrounded);
+        anim.SetFloat("yVelocity", rb.linearVelocityY);
     }
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.linearVelocity.y);
-        rb.AddForce(Physics.gravity * (gravityScale - 1) * rb.mass);
-        if (horizontalInput > 0)
-        {
-            Debug.Log("right");
-            isRightFacing = true;
-            transform.localScale = 3*Vector2.one;
-        }
-        else if (horizontalInput < 0) 
-        {
-            Debug.Log("left");
-            isRightFacing = false;
-            transform.localScale = new Vector2(-3, 3);
-        }
-        else 
-        {
-            if (isRightFacing) 
-                transform.localScale = 3*Vector2.one;
-            else             
-                transform.localScale = new Vector2(-3, 3);
-
-        }
+        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
     }
-    private void OnCollisionEnter2D(Collision2D others)
+
+    private void checkGround()
     {
-        if (others.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            anim.SetBool("isGrounded", true);
-            Debug.Log ("not jump");
-        }
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
     }
 
-    private void OnCollisionExit2D(Collision2D others)
+    private void flipControl()
     {
-        if (others.gameObject.CompareTag("Ground"))
+        if (horizontalInput > 0.01f)
         {
-            isGrounded = false;
-            Debug.Log("jump");
+            if (!directRight)
+            {
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1;
+                transform.localScale = localScale;
+
+                directRight = true;
+            }
+        }
+        else if (horizontalInput < -0.01f) 
+        {
+            if (directRight)
+            {
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1;
+                transform.localScale = localScale;
+
+                directRight = false;
+            }
         }
     }
-
 }

@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 1188776986}
   - component: {fileID: 1188776985}
   - component: {fileID: 1188776984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -297,23 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ffcbf16677afa4aaff77df0d02dd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
-  radius: 0
+  jumpForce: 6
   speed: 8
-  groundPos: {fileID: 0}
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  groundCheck: {fileID: 0}
-  ceilingCheck: {fileID: 0}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpTime: 0
-  jumpAmount: 10
-  gravityScale: 5
-  enemies:
+  groundCheckDistance: 1
+  groundLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!114 &1207293451
@@ -323,7 +310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207293448}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b2b1a04e6bedf4fb9d66889d729785, type: 3}
   m_Name: 
@@ -381,6 +368,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.14913236, y: 0.47547767}
   m_EdgeRadius: 0
+--- !u!114 &1207293458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207293448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f332411391f8174448417389f9555dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0.8
+  attackRange: 1
+  damage: 1
+  attackPoint: {fileID: 1965611280}
 --- !u!1 &1422179190
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +552,9 @@ PrefabInstance:
       addedObject: {fileID: 1207293451}
     - targetCorrespondingSourceObject: {fileID: 5696332647473510687, guid: 05a82bf98c1e62f47aaa6124e3a7ae3d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1207293458}
+    - targetCorrespondingSourceObject: {fileID: 5696332647473510687, guid: 05a82bf98c1e62f47aaa6124e3a7ae3d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1207293450}
     - targetCorrespondingSourceObject: {fileID: 5696332647473510687, guid: 05a82bf98c1e62f47aaa6124e3a7ae3d, type: 3}
       insertIndex: -1
@@ -566,7 +572,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1965611280}
-  - component: {fileID: 1965611281}
   m_Layer: 0
   m_Name: Attack Point
   m_TagString: Untagged
@@ -589,26 +594,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1207293454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1965611281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965611279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f332411391f8174448417389f9555dfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackCooldown: 1
-  attackRange: 0.8
-  boxCollider: {fileID: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackPoint: {fileID: 1965611280}
-  damage: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

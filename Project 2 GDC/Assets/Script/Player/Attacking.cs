@@ -5,28 +5,37 @@ public class Attacking : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
     [SerializeField] private float attackRange;
-    [SerializeField] private BoxCollider2D boxCollider;
-    [SerializeField] private LayerMask enemyLayer;
-    private Animator anim;
-    public Transform attackPoint;
-
-    private float cooldownTimer = Mathf.Infinity;
     [SerializeField] private int damage;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Transform attackPoint;
+    
+    private LayerMask enemyLayer;
+    private Animator anim;
+
+    private float cooldownTimer;
+
+    void Awake()
+    {
+        enemyLayer = LayerMask.GetMask("Enemy");
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        cooldownTimer = attackCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-          if (Input.GetKey(KeyCode.J) && cooldownTimer > attackCooldown) 
+          if (Input.GetKey(KeyCode.J) && cooldownTimer <= 0) 
         {
             Attack();
+            cooldownTimer = attackCooldown;
+            
         }
 
-        cooldownTimer += Time.deltaTime;
+        cooldownTimer -= Time.deltaTime;
+
     }
 
     private void Attack ()
