@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
    public void TakeDamage (int _dame) 
    {
+        healthBar.text = "HP: " + currentHealth.ToString();
         currentHealth -= _dame;
         if (currentHealth <= 0)
         {
