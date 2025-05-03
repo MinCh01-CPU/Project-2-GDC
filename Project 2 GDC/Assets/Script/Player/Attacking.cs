@@ -51,7 +51,6 @@ public class Attacking : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
             }
         }
-        Sound.instance.PlayClip(Sound.instance.slash, transform.position);
     }
 
     private void OnDrawGizmosSelected() {

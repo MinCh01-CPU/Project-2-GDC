@@ -28,7 +28,6 @@ public class Move_Bee : MonoBehaviour
     private void Start(){
 
         StartCoroutine(Patrol());
-        _player = FindFirstObjectByType<JoyStick>().transform;
     }
     void OnCollisionStay2D(Collision2D collision)
     {

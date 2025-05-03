@@ -35,6 +35,5 @@ public class Health : MonoBehaviour
             //healthBar.text = "HP" + currentHealth.ToString();
             Debug.Log("Alive");
         }
-        Sound.instance.PlayClip(Sound.instance.getHit, transform.position);
    }
 }
