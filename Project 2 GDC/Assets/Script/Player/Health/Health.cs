@@ -1,27 +1,27 @@
-using UnityEditor.ShaderGraph.Internal;
+
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
-    [SerializeField] private TMP_Text healthBar;
-     private float currentHealth;
+    [SerializeField] private Image healthBar;
+    private float currentHealth;
     private Animator anim;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Awake()
     {
         currentHealth = startingHealth;
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
-        healthBar.text = "HP: " + currentHealth.ToString();
-        // if (currentHealth <= 0) anim.SetBool("isDead", true);
+        if (currentHealth <= 0) anim.SetBool("isDead", true);
+
+        healthBar.fillAmount = currentHealth/startingHealth;
     }
-    // void FixedUpdate()
-    // {
-    //     if (currentHealth <= 0) anim.SetBool("isDead", true);
-    // }
+   
     // Update is called once per frame
     public void TakeDamage (float _dame) 
    {

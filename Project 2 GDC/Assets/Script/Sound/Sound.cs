@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
-
+using UnityEngine.Audio;
 
 public class Sound : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class Sound : MonoBehaviour
     public AudioSource walking;
     public AudioSource backgroundSound;
     
-
 
     void Awake()
     {
