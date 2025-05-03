@@ -9,9 +9,9 @@ public class Health_Snail : Health_Enemy
     }
     public override void TakeDamage(float Damage){
         base.TakeDamage(Damage);
-        if (animator != null)
-        {
-            animator.SetTrigger("Get Hit");  // Gọi animation "Get Hit"
+        Move_Snail move_Snail=GetComponent<Move_Snail>();
+        if(move_Snail!=null){
+            move_Snail.TakeDamageReaction();
         }
     }
 }

@@ -9,13 +9,17 @@ public class Move_Bee : MonoBehaviour
     [SerializeField] private float Enemy_dmg;
     [SerializeField] private float Enemy_cd;
     [SerializeField] private float patrolRange;
+    [SerializeField] private float hurtDuration ;
+    [SerializeField] private float knockbackForce ;
     private float lastTime = 0f;
     private Rigidbody2D _rb;
     private Aware_Bee _aware;
     private bool directRight=false;
     private bool isChasing=false;
     private bool isTouch=false;
+    private bool isHurt=false;
     private Vector2 StartPoint;
+    private Vector2 knockbackDirection;
     public Transform _player;
     public Animator animator;
 
@@ -57,7 +61,7 @@ public class Move_Bee : MonoBehaviour
                 StopAllCoroutines();
             }
             Chase();
-            if(isTouch && Time.time-lastTime>=Enemy_cd){
+            if(!isHurt&&isTouch && Time.time-lastTime>=Enemy_cd){
                 attack();
                 lastTime=Time.time;
             }
@@ -70,6 +74,10 @@ public class Move_Bee : MonoBehaviour
                 isChasing=false;
                 StartCoroutine(Patrol());
             }
+        }
+        if (isHurt){
+            animator.SetBool("Attack", false);
+            return;
         }
     }
     
@@ -140,4 +148,20 @@ public class Move_Bee : MonoBehaviour
             _rb.linearVelocityX=Enemy_spd;
         }
     }
+    public void TakeDamageReaction(){
+        if (!isHurt){
+            knockbackDirection = (transform.position - _player.position).normalized;
+            StartCoroutine(HurtRoutine());
+        }
+    }
+    private IEnumerator HurtRoutine(){
+        isHurt = true;
+        _rb.linearVelocity = Vector2.zero;
+        animator.SetTrigger("Get Hit"); // Animation bị đánh
+        _rb.linearVelocity=knockbackDirection*knockbackForce;// Lỗi
+        yield return new WaitForSeconds(hurtDuration); // khoảng choáng
+
+        isHurt = false;
+    }
+    
 }

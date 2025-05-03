@@ -14,5 +14,9 @@ public class Health_Boar : Health_Enemy
         {
             animator.SetTrigger("Get Hit");  // Gọi animation "Get Hit"
         }
+        Move_Boar move_Boar=GetComponent<Move_Boar>();
+        if(move_Boar!=null){
+            move_Boar.TakeDamageReaction();
+        }
     }
 }
