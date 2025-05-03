@@ -44,7 +44,12 @@ public class Attacking : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
+
             Debug.Log("Hit enemy");
+            Health_Enemy enemyHealth = enemy.GetComponent<Health_Enemy>();
+                if (enemyHealth != null){
+                enemyHealth.TakeDamage(damage);
+            }
         }
         Sound.instance.PlayClip(Sound.instance.slash, transform.position);
     }

@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private TMP_Text healthBar;
-     private int currentHealth;
+     private float currentHealth;
     private Animator anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -23,15 +23,17 @@ public class Health : MonoBehaviour
     //     if (currentHealth <= 0) anim.SetBool("isDead", true);
     // }
     // Update is called once per frame
-    public void TakeDamage (int _dame) 
+    public void TakeDamage (float _dame) 
    {
         currentHealth -= _dame;
         if (currentHealth <= 0)
         {
             anim.SetBool("isDead", true);
+            Debug.Log("Dead");
         }
         else {
-            healthBar.text = "HP" + currentHealth.ToString();
+            //healthBar.text = "HP" + currentHealth.ToString();
+            Debug.Log("Alive");
         }
         Sound.instance.PlayClip(Sound.instance.getHit, transform.position);
    }
