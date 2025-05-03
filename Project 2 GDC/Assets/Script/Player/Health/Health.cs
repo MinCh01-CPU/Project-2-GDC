@@ -9,15 +9,18 @@ public class Health : MonoBehaviour
     [SerializeField] private Image healthBar;
     private float currentHealth;
     private Animator anim;
+    public GameObject UI;
+    private UImanager UIscript;
     
     void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+        UIscript=UI.GetComponent<UImanager>();
     }
     void Update()
     {
-        if (currentHealth <= 0) anim.SetBool("isDead", true);
+        if (currentHealth <= 0) {anim.SetBool("isDead", true); UIscript.isdead=true;}
 
         healthBar.fillAmount = currentHealth/startingHealth;
     }

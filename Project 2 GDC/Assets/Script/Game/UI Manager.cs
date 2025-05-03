@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class UImanager : MonoBehaviour
 {
     private bool isPaused;
+    public bool victory;
+    public bool isdead;
+    [SerializeField] private GameObject victoryBoard;
+    [SerializeField] private GameObject deadBoard;
+
     [SerializeField] private GameObject menuBoard;
 
     void Update()
@@ -12,6 +17,12 @@ public class UImanager : MonoBehaviour
         {
             if (isPaused) ResumeGame();
             else PauseGame();
+        }
+        if(victory){
+            Victory();
+        }
+        if(isdead){
+            Dead();
         }
 
     }
@@ -39,4 +50,13 @@ public class UImanager : MonoBehaviour
         Time.timeScale = 1;
         menuBoard.SetActive(false);
     }
+    public void Victory(){
+        Time.timeScale = 0;
+        victoryBoard.SetActive(true);
+    }
+    public void Dead(){
+        Time.timeScale = 0;
+        deadBoard.SetActive(true);
+    }
+    
 }
