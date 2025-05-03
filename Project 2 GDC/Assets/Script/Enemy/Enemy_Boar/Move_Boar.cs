@@ -54,7 +54,7 @@ public class Move_Boar : MonoBehaviour
             else{
                 if(directRight)Flip();     
             }
-            _rb.linearVelocityX=-Enemy_spd;
+            _rb.linearVelocityX=-Enemy_spd*2;
     }
     void Hit(){
         animator.SetBool("Hit",true);

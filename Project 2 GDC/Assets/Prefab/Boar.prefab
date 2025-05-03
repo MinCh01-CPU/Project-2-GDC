@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3667787465259593475}
   - component: {fileID: 1746029217136445199}
   - component: {fileID: 6271615225184119363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1221760371
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -3145328045451892686, guid: 6e4d15ff3fbe4c141af299ac0bd7a691, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98796eb41792d12489cdba6d987ed274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boar_Health: 4
+  Boar_Health: 5
 --- !u!114 &1746029217136445199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a400a5dbf3607a847b21c83452f0897c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeAware: 2
+  RangeAware: 3
 --- !u!114 &6271615225184119363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8332817239949419748}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
