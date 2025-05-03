@@ -9,21 +9,22 @@ public class JoyStick : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float speed = 8;
     private bool isGrounded;
-    [SerializeField] private float groundCheckDistance;
+    private BoxCollider2D box;
     private bool directRight = true;
+    private bool canJump = true, wasGrounded = false;
     private float horizontalInput;
 
     private Rigidbody2D rb;
     private Animator anim;
 
     public LayerMask groundLayer;
+    public LayerMask enemyLayer;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
-        groundLayer = LayerMask.GetMask("Ground");
+        box = GetComponent<BoxCollider2D>();
     }
 
     void Start()
@@ -36,12 +37,23 @@ public class JoyStick : MonoBehaviour
         checkGround();
 
         horizontalInput = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && canJump)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.linearVelocityY = jumpForce;
+            canJump = false;
+            Invoke(nameof(ResetJump), 0.2f);
+
+            Sound.instance.PlayClip(Sound.instance.jump, transform.position);
         }
 
         flipControl();
+
+        if (horizontalInput!=0 && isGrounded)
+        {
+            if (!Sound.instance.walking.isPlaying)
+            Sound.instance.StartWalking(transform.position, 0.3f);
+        }
+        else Sound.instance.StopWalking();
 
         anim.SetBool("isRunning", horizontalInput!=0);
         anim.SetBool("isJumping", !isGrounded);
@@ -54,7 +66,12 @@ public class JoyStick : MonoBehaviour
 
     private void checkGround()
     {
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, box.size.y/2, groundLayer | enemyLayer);
+        if (isGrounded && !wasGrounded)
+        {
+            Sound.instance.PlayClip(Sound.instance.land, transform.position);
+        }
+        wasGrounded = isGrounded;
     }
 
     private void flipControl()
@@ -81,5 +98,9 @@ public class JoyStick : MonoBehaviour
                 directRight = false;
             }
         }
+    }
+    void ResetJump()
+    {
+        canJump = true;
     }
 }
