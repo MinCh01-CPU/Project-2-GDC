@@ -33,5 +33,6 @@ public class Health : MonoBehaviour
         else {
             healthBar.text = "HP" + currentHealth.ToString();
         }
+        Sound.instance.PlayClip(Sound.instance.getHit, transform.position);
    }
 }

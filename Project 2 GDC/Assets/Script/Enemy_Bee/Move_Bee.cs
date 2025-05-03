@@ -23,6 +23,7 @@ public class Move_Bee : MonoBehaviour
     private void Start(){
 
         StartCoroutine(Patrol());
+        _player = FindFirstObjectByType<JoyStick>().transform;
     }
     void FixedUpdate()
     {

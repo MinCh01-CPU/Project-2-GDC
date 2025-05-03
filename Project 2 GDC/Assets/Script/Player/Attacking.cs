@@ -46,6 +46,7 @@ public class Attacking : MonoBehaviour
         {
             Debug.Log("Hit enemy");
         }
+        Sound.instance.PlayClip(Sound.instance.slash, transform.position);
     }
 
     private void OnDrawGizmosSelected() {
