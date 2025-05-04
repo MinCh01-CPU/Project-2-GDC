@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 8510536981457293237}
   - component: {fileID: 5247781145495281056}
   - component: {fileID: 8542985123370157367}
-  m_Layer: 0
+  - component: {fileID: 3811762536809736964}
+  - component: {fileID: 5378807571479721176}
+  - component: {fileID: 8184864693974337967}
+  - component: {fileID: 745603780651139863}
+  m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,12 +78,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1221760371
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4243389574673483943, guid: fb8b90264fe0af8428c0925f4cfc7d91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -98,7 +102,7 @@ Animator:
   m_GameObject: {fileID: 1615854664310575916}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f48ee3b7038da16419cd5bf417cdbd6e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 983e61084f01ac241befc1377faadc0a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -110,3 +114,85 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3811762536809736964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615854664310575916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0731a8d0d0077f64cb1cc01da7187426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy_dmg: 2
+  Enemy_cd: 5
+  _player: {fileID: 0}
+  animator: {fileID: 8542985123370157367}
+--- !u!114 &5378807571479721176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615854664310575916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dd0ee007df9f84a8aeae5c75d045a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy_Prefab: {fileID: 3870884505556056930, guid: 8bcddbe2bbc76ac449fea0607b6fc3eb, type: 3}
+  SummonArena: {fileID: 0}
+  Max_Enemy: 5
+--- !u!114 &8184864693974337967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615854664310575916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4287933872badf2428bf3e6a135a6e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 0}
+  maxHealth: 10
+--- !u!70 &745603780651139863
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615854664310575916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.05, y: 0}
+  m_Size: {x: 0.3, y: 0.8}
+  m_Direction: 0

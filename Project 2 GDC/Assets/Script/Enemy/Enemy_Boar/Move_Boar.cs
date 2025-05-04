@@ -13,6 +13,8 @@ public class Move_Boar : MonoBehaviour
     private Aware_Boar _aware;
     private bool directRight=false;
     private bool isGround=true;
+    private bool isChasing;
+    private bool isHurt;
     private Vector2 StartPoint;
     public Transform _player;
     public GameObject groundCheck;
@@ -45,7 +47,6 @@ public class Move_Boar : MonoBehaviour
     {
         animator.SetBool("Walk",false);
         animator.SetBool("Run",true);
-        if(_aware.AwareOfPlayer){
             animator.SetBool("Run",true);
             if(_player.position.x<transform.position.x){
                 if(!directRight)Flip();
@@ -53,11 +54,7 @@ public class Move_Boar : MonoBehaviour
             else{
                 if(directRight)Flip();     
             }
-            _rb.linearVelocityX=-Enemy_spd;
-        }
-        else{
-            animator.SetBool("Run",false);
-        }
+            _rb.linearVelocityX=-Enemy_spd*2;
     }
     void Hit(){
         animator.SetBool("Hit",true);
@@ -74,7 +71,6 @@ public class Move_Boar : MonoBehaviour
     {
         while (true)
         {
-
             // Di chuyển đến khi vượt khỏi phạm vi tuần tra
             while (Mathf.Abs(transform.position.x - StartPoint.x) <= patrolRange)
             {
@@ -95,5 +91,22 @@ public class Move_Boar : MonoBehaviour
         if(!isGround){
             Flip();
             }
+    }
+    public void TakeDamageReaction(){
+        if (!isChasing){
+            StopAllCoroutines();
+            isChasing=true;
+            StartCoroutine(RunAway());
+        }
+    }
+    private IEnumerator RunAway(){
+        while(_aware.AwareOfPlayer){
+            Run();
+            yield return null;
+        }
+        isChasing = false;
+        idie();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(Patrol());
     }
 }

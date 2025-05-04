@@ -14,5 +14,9 @@ public class Health_Bee : Health_Enemy
         {
             animator.SetTrigger("Get Hit");  // Gọi animation "Get Hit"
         }
+        Move_Bee move_Bee=GetComponent<Move_Bee>();
+        if(move_Bee!=null){
+            move_Bee.TakeDamageReaction();
+        }
     }
 }

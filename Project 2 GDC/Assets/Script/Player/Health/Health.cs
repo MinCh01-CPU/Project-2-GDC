@@ -32,11 +32,9 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             anim.SetBool("isDead", true);
-            Debug.Log("Dead");
         }
         else {
             //healthBar.text = "HP" + currentHealth.ToString();
-            Debug.Log("Alive");
         }
         Sound.instance.PlayClip(Sound.instance.getHit, transform.position);
    }
